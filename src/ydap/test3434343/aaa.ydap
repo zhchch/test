@@ -1,0 +1,53 @@
+{
+  "title": "列表编辑模板",
+  "sections": [
+    {
+      "title": "列表编辑章节",
+      "blocks": [
+        {
+          "title": "列表编辑",
+          "type": "List",
+          "id": "list16",
+          "columns": [
+            {
+              "id": "xingming",
+              "label": "姓名"
+            },
+            {
+              "id": "zjlx",
+              "label": "证件类型",
+              "options": "demo.zjlx"
+            },
+            {
+              "id": "zjhm",
+              "label": "证件号码",
+              "rules": [
+                {
+                  "name": "required",
+                  "value": "true"
+                }
+              ]
+            },
+            {
+              "id": "csrq",
+              "label": "出生日期",
+              "type": "DateTime"
+            },
+            {
+              "id": "grjcjs",
+              "label": "个人缴存基数",
+              "type": "Money"
+            }
+          ],
+          "autoquery": "true",
+          "insert": "true",
+          "delete": "true",
+          "batchdelete": "true",
+          "update": "true",
+          "import": "true",
+          "export": "true"
+        }
+      ]
+    }
+  ]
+}
