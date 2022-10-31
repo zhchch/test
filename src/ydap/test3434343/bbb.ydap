@@ -1,0 +1,176 @@
+{
+  "title": "左列表右表单模板",
+  "actions": [
+    {
+      "on": "load",
+      "type": "ajax",
+      "api": "DEMO01502"
+    }
+  ],
+  "sections": [
+    {
+      "title": "左侧列表",
+      "id": "section1",
+      "blocks": [
+        {
+          "type": "List",
+          "id": "listResult",
+          "autoquery": "true",
+          "shownumber": "true",
+          "paging": "simple",
+          "columns": [
+            {
+              "id": "jkhtbh",
+              "label": "借款合同编号"
+            },
+            {
+              "id": "jkrxm",
+              "label": "借款人姓名"
+            },
+            {
+              "id": "jkrzjh",
+              "label": "借款人证件号"
+            },
+            {
+              "id": "dkzhzt",
+              "label": "贷款账户状态"
+            },
+            {
+              "id": "swtyh",
+              "label": "受委托银行",
+              "options": "=%a.DEMO01502.business.options"
+            },
+            {
+              "id": "dylx",
+              "label": "抵押类型",
+              "options": "demo.dylx"
+            }
+          ],
+          "actions": [
+            {
+              "on": "rowClick",
+              "type": "setFieldsValue",
+              "idlist": [
+                "jkhtbh",
+                "jkrxm",
+                "jkrzjh",
+                "dkzhzt",
+                "swtyh",
+                "dylx",
+                "uuid"
+              ],
+              "source": "=%l.listResult.selected"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "右侧表单",
+      "id": "section2",
+      "blocks": [
+        {
+          "title": "辅助编辑列表记录的表单",
+          "type": "Form",
+          "fields": [
+            {
+              "type": "Input",
+              "id": "jkhtbh",
+              "label": "借款合同编号",
+              "value": "=%f.jkhtbh"
+            },
+            {
+              "type": "Input",
+              "id": "jkrxm",
+              "label": "借款人姓名",
+              "value": "=%f.jkrxm"
+            },
+            {
+              "type": "Input",
+              "id": "jkrzjh",
+              "label": "借款人证件号",
+              "value": "=%f.jkrzjh"
+            },
+            {
+              "type": "Input",
+              "id": "dkzhzt",
+              "label": "贷款账户状态",
+              "value": "=%f.dkzhzt"
+            },
+            {
+              "type": "Select",
+              "id": "swtyh",
+              "label": "受委托银行",
+              "value": "=%f.swtyh",
+              "options": "=%a.DEMO01502.business.options"
+            },
+            {
+              "type": "Select",
+              "id": "dylx",
+              "label": "抵押类型",
+              "value": "=%f.dylx",
+              "options": "demo.dylx"
+            }
+          ],
+          "buttons": [
+            {
+              "label": "取消",
+              "type": "default",
+              "actions": [
+                {
+                  "type": "formReset",
+                  "fields": [
+                    "dylx",
+                    "swtyh",
+                    "dkzhzt",
+                    "jkrzjh",
+                    "jkrxm",
+                    "jkhtbh",
+                    "uuid"
+                  ]
+                }
+              ]
+            },
+            {
+              "label": "保存",
+              "type": "primary",
+              "actions": [
+                {
+                  "type": "ajax",
+                  "api": "DEMO2105",
+                  "params": [
+                    "uuid",
+                    "dylx",
+                    "swtyh",
+                    "dkzhzt",
+                    "jkrzjh",
+                    "jkrxm",
+                    "jkhtbh"
+                  ]
+                },
+                //再次查询列表数据
+                {
+                  "type": "listQuery",
+                  "id": "listResult",
+                  "params": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "layout": [
+    [
+      {
+        "xs": "8",
+        "container": "section1"
+      },
+      {
+        "xs": "16",
+        "container": "section2"
+      }
+    ]
+  ]
+}

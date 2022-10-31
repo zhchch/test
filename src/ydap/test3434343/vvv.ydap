@@ -1,0 +1,65 @@
+{
+  "title": "普通表单模板",
+  "sections": [
+    {
+      "title": "普通表单章节",
+      "blocks": [
+        {
+          "title": "普通表单",
+          "type": "Form",
+          "cols": "3",
+          "fields": [
+            {
+              "type": "Input",
+              "id": "wbsr",
+              "label": "文本输入",
+              "value": "=%f.wbsr",
+              "rules": [
+                {
+                  "name": "required",
+                  "value": "true"
+                }
+              ]
+            },
+            {
+              "type": "Number",
+              "id": "szsr",
+              "label": "数字输入",
+              "value": "=%f.szsr"
+            },
+            {
+              "type": "Money",
+              "id": "jesr",
+              "label": "金额输入",
+              "value": "=%f.jesr"
+            },
+            {
+              "type": "TextArea",
+              "id": "dhwbsr",
+              "label": "多行文本输入",
+              "placeholder": "可以输入多行文本，按回车换行",
+              "value": "=%f.dhwbsr",
+              "rows": "3"
+            },
+            {
+              "type": "Select",
+              "id": "qblllx",
+              "label": "全部利率类型",
+              "options": "demo.lllx",
+              "placeholder": "请选择一种利率类型...",
+              "value": "=%f.qblllx"
+            },
+            {
+              "type": "DateTime",
+              "id": "riqi1",
+              "label": "日期输入1",
+              "format": "YYYY-MM-DD",
+              "placeholder": "请选择日期（格式：YYYY-MM-DD）",
+              "value": "=%f.riqi1"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
